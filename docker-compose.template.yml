@@ -1,0 +1,18 @@
+# 非 host 版本, 不使用本机代理
+version: "3.3"
+services:
+  mini-compoder-mongo:
+    image: mongo:5.0.18
+    container_name: mini-compoder-mongo
+    restart: always
+    ports:
+      - 27017:27017
+    networks:
+      - mini-compoder
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=username
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - ./database/data:/data/db
+networks:
+  mini-compoder:
