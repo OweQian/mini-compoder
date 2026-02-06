@@ -580,6 +580,16 @@
             }
           }
         }
+      },
+      {
+        "type": "file-structure",
+        "description": "Define the file structure for the project",
+        "prompt": "Output component code in XML format as follows:\\n<ComponentArtifact name=\"ComponentName\">\\n  <ComponentFile fileName=\"App.tsx\" isEntryFile=\"true\">\\n  {{code}}  \\n  </ComponentFile>\\n\\n </ComponentArtifact>"
+      },
+      {
+        "type": "attention-rules",
+        "description": "Attention rules for the code generator",
+        "prompt": "- Please mock all image resources from picsum \n - Please mock all vedios resources from https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ \n - If the icon cannot be found in lucide-react, use svg to generate it \n - If the LandingHeader component is used, the custom logo (logoComponent) and ThemeSwitch must be configured according to the requirements \n - The width of the outermost container node needs to be \"w-full\" \n - If the LandingFooter component exists, the custom logo (logoComponent) must be configured \n - If the LandingSocialProofBand component exists, it needs to be placed at the first element of the page (and before LandingHeader)"
       }
     ]
   }
