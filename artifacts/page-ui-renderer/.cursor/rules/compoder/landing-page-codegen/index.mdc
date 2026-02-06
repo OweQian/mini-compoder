@@ -1,0 +1,67 @@
+---
+description: compoder Landing Page Codegen
+globs:
+alwaysApply: false
+---
+
+# Landing Page Codegen Component Generation Orchestration Rules
+
+When the user references this rule document, the system will execute component generation according to the following workflow:
+
+1. Design component specification (Component Design)
+2. Generate component code based on the design
+
+Note:
+
+- The required rule files must be read completely step by step, and only after one step is completed can the next rule file be read
+- Each step should be executed sequentially to ensure proper component generation
+
+## State Management and Execution Mechanism
+
+The system will maintain the following state variables:
+
+- `current_step`: The current execution step (1-2)
+- `user_requirements`: User's component requirements or design draft
+- `component_design`: Component design information from step 1
+- `component_code`: Generated component code from step 2
+
+### Complete Rule File Reading Mechanism
+
+Since rule files may exceed the single reading limit, the system will:
+
+1. **Use multi-segment reading**: Read each rule file completely in multiple times, without omitting any content
+2. **Verify completeness**: Ensure the rule file has been completely read by checking the end of file content
+3. **Maintain context**: Maintain the overall context and coherence of the rule file when reading multiple segments
+
+## Step Details
+
+### Step 1: Design Component Specification
+
+**Trigger condition**: `current_step = 1` and the user has provided component requirements
+
+**Actions**:
+
+1. Completely read the `./.cursor/rules/compoder/landing-page-codegen/step1.md` file content
+2. Apply this rule to design the component and extract required information
+3. Update `component_design` and proceed to the next step
+
+### Step 2: Generate Component Code
+
+**Trigger condition**: `current_step = 2` and `component_design` is not empty
+
+**Actions**:
+
+1. Completely read the `./.cursor/rules/compoder/landing-page-codegen/step2.md` file content
+2. Apply this rule to generate the component code
+3. Save the generated code to appropriate files in the current directory
+
+## Notes
+
+1. The system will load rule files as needed, and will not load all rule contents at once
+2. Each rule file will be read completely, without omitting content due to line number limitations
+3. State variables are continuously maintained throughout the workflow to ensure coherence between steps
+4. After each step is completed, the value of current_step should be printed, and the user should be informed of what the next step will be
+
+---
+
+When using this rule, please provide the component requirements or design draft first, and the system will automatically start executing from step 1.

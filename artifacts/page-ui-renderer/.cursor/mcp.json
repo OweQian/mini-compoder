@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "compoder": {
+      "command": "compoder",
+      "args": [
+        "mcp",
+        "server",
+        "--api-base-url",
+        "http://localhost:3000"
+      ]
+    }
+  }
+}

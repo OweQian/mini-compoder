@@ -1,0 +1,7 @@
+{
+  "codegen": "Landing Page Codegen",
+  "aiClients": [
+    "cursor"
+  ],
+  "version": "0.0.1"
+}
