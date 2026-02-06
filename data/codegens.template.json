@@ -88,7 +88,6 @@
       }
     ]
   },
-
   {
     "title": "Private Component Codegen",
     "description": "Code generator based on private components",
