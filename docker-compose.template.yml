@@ -1,18 +1,30 @@
 # 非 host 版本, 不使用本机代理
+# Docker Compose 文件格式版本
 version: "3.3"
+
 services:
+  # MongoDB 数据库服务，用于 Compoder 应用数据持久化
   mini-compoder-mongo:
+    # 使用官方 MongoDB 5.0.18 镜像
     image: mongo:5.0.18
+    # 容器名称，便于识别与管理
     container_name: mini-compoder-mongo
+    # 容器异常退出时自动重启
     restart: always
+    # 端口映射：宿主机 27017 -> 容器 27017（MongoDB 默认端口）
     ports:
       - 27017:27017
+    # 接入 mini-compoder 网络，便于与其他服务通信
     networks:
       - mini-compoder
+    # MongoDB 根用户认证（生产环境请修改为强密码）
     environment:
       - MONGO_INITDB_ROOT_USERNAME=username
       - MONGO_INITDB_ROOT_PASSWORD=password
+    # 数据卷：将数据库文件持久化到宿主机 ./database/data 目录
     volumes:
       - ./database/data:/data/db
+
+# 自定义网络定义，供多个服务共享
 networks:
   mini-compoder:
